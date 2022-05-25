@@ -1,12 +1,13 @@
-from http.server import BaseHTTPRequestHandler, HTTPServer
-import time
+"""System module."""
 import os
 
-hostName = "0.0.0.0"
-serverPort = 80
+from http.server import BaseHTTPRequestHandler, HTTPServer
+
+HOST_NAME = "0.0.0.0"
+SERVER_PORT = 80
 
 class MyServer(BaseHTTPRequestHandler):
-    def do_GET(self):
+    def do_get(self):
         self.send_response(200)
         self.send_header("Content-type", "text/html")
         self.end_headers()
@@ -15,13 +16,14 @@ class MyServer(BaseHTTPRequestHandler):
         self.wfile.write(bytes("<p>Request: %s</p>" % self.path, "utf-8"))
         self.wfile.write(bytes("<body>", "utf-8"))
         for item, value in os.environ.items():
-            self.wfile.write(bytes("<div style='color:red;font-size:15px;'> %s: </div> <div style='color:black;font-size:15px;'> %s </div>" % (item, value), "utf-8"))
+            self.wfile.write(bytes("<div style='color:red;font-size:15px;'> %s:
+            </div> <div style='color:black;font-size:15px;'> %s </div>" % (item, value), "utf-8"))
         self.wfile.write(bytes("<p>----------------------</p>", "utf-8"))
         self.wfile.write(bytes("</body></html>", "utf-8"))
 
 if __name__ == "__main__":
-    webServer = HTTPServer((hostName, serverPort), MyServer)
-    print("Server started http://%s:%s" % (hostName, serverPort))
+    webServer = HTTPServer((HOST_NAME, SERVER_PORT), MyServer)
+    print("Server started http://%s:%s" % (HOST_NAME, SERVER_PORT))
 
     try:
         webServer.serve_forever()
