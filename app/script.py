@@ -17,7 +17,7 @@ class MyServer(BaseHTTPRequestHandler):
         self.wfile.write(bytes("<body>", "utf-8"))
         for item, value in os.environ.items():
             self.wfile.write(bytes("<div style='color:red;font-size:15px;'> \
-            %s:</div> <div style='color:black;font-size:15px;'> %s </div>" \ 
+            %s:</div> <div style='color:black;font-size:15px;'> %s </div>" 
             % (item, value), "utf-8"))
         self.wfile.write(bytes("<p>----------------------</p>", "utf-8"))
         self.wfile.write(bytes("</body></html>", "utf-8"))
