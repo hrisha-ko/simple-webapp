@@ -6,12 +6,14 @@
 import os
 
 from http.server import BaseHTTPRequestHandler, HTTPServer
+import logging
 
 HOST_NAME = "0.0.0.0"
 SERVER_PORT = 80
 
 class MyServer(BaseHTTPRequestHandler):
     def do_GET(self):
+        logging.error(self.headers)
         self.send_response(200)
         self.send_header("Content-type", "text/html")
         self.end_headers()
