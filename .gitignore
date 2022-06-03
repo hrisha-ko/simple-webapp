@@ -6,6 +6,10 @@ __pycache__/
 # C extensions
 *.so
 
+# My own file with comments
+INFO
+export.sh
+
 # Distribution / packaging
 .Python
 build/
