@@ -18,7 +18,7 @@ class MyServer(BaseHTTPRequestHandler):
         self.send_header("Content-type", "text/html")
         self.end_headers()
         self.wfile.write(bytes("<html><head><title>=====VARIABLES:=====</title></head>", "utf-8"))
-        self.wfile.write(bytes("<p>----------REV 2.------------</p>", "utf-8"))
+        self.wfile.write(bytes("<p>----------FIX-2.------------</p>", "utf-8"))
         self.wfile.write(bytes("<body>", "utf-8"))
         for item, value in os.environ.items():
             self.wfile.write(bytes(f"<div style='color:red;font-size:15px;'> \
