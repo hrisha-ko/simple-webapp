@@ -47,9 +47,9 @@ RUN pip install --no-cache-dir /wheels/*
 ARG GIT_COMMIT_HASH
 ENV GIT_COMMIT_HASH=${GIT_COMMIT_HASH:-dev}
 
-#RUN --mount=type=secret,id=mysecrets cat /run/secrets/mysecrets 
+#RUN --mount=type=secret,id=mysecrets cat /run/secrets/mysecrets
 
-HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 CMD timeout 10s bash -c ':> /dev/tcp/127.0.0.1/80' || exit 1
+HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 CMD timeout 10s bash -c ':> /dev/tcp/127.0.0.1/8000' || exit 1
 
 CMD [ "python", "./script.py" ]
 

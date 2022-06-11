@@ -9,7 +9,7 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 import logging
 
 HOST_NAME = "0.0.0.0"
-SERVER_PORT = 80
+SERVER_PORT = 8000
 
 class MyServer(BaseHTTPRequestHandler):
     def do_GET(self):
