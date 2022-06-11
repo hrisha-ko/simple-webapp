@@ -19,7 +19,7 @@ class MyServer(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(bytes("<html><head><title>=====VARIABLES:=====</title></head>", "utf-8"))
 
-        self.wfile.write(bytes("<p>----------REV 1.------------</p>", "utf-8"))
+        self.wfile.write(bytes("<p>----------Version 0.1.0------------</p>", "utf-8"))
 
         self.wfile.write(bytes("<body>", "utf-8"))
         for item, value in os.environ.items():
